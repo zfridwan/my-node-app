@@ -19,6 +19,8 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME,
 });
 
+//backend web-apps vesion node js
+
 db.connect((err) => {
   if (err) {
     console.error("Error connecting to the database:", err.stack);
@@ -428,12 +430,10 @@ app.get("/api/financial-report", apiKeyRequired, async (req, res) => {
       areas: areas.map((a) => a.area),
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        error: "Error fetching financial report",
-        message: error.message,
-      });
+    res.status(500).json({
+      error: "Error fetching financial report",
+      message: error.message,
+    });
   }
 });
 
